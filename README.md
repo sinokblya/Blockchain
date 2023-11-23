@@ -1,2 +1,20 @@
-# merkle-tree
-Merkle tree js implementation
+# Merkle Tree
+
+В проекте представлены основные классы данных, которые используются в блокчейне. 
+Необходимо написать реализацию методов и проверить правильность с помощью тестов `index.test.js`.  
+Для запуска тестов необходимо установить [nodejs](https://nodejs.org/).  
+
+### Установка 
+
+Клонируйте репозиторий, перейдите в каталог проекта и установите зависимости.  
+```bash 
+git clone https://github.com/labintsev/merkle-tree
+cd merkle-tree
+npm install
+```
+
+Запуск тестов 
+```bash
+npm test
+```
+

@@ -6,9 +6,9 @@ const SHA256 = require('ethereum-cryptography/sha256').sha256;
 const utf8ToBytes = require('ethereum-cryptography/utils').utf8ToBytes;
 
 
-class TXO {
+class Transaction {
     constructor(owner, amount) {
-        // TODO 1 Init transaction owner, amount, spent, hash 
+        // TODO 1 Init transaction from, to, value, spent, hash 
     }
     spend() {
         // TODO 2 Check is transaction spent
@@ -16,4 +16,4 @@ class TXO {
     }
 }
 
-module.exports = { TXO }
+module.exports = { Transaction }

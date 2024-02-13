@@ -46,8 +46,8 @@ npx mocha test/Blockchain.js
 
 ## 2. Transaction output
 
-Объект `TXO` - transaction output, содержит информацию об адресе владельца и количестве монет. 
-Реализуйте конструктор транзакции с полями `owner, amount, spent, hash`. 
+Объект `Transaction` содержит информацию об адресе владельца, получателя и количестве монет. 
+Реализуйте конструктор транзакции с полями `from, to, value, spent, hash`. 
 
 Метод `spend()` означает проведение транзакции и может быть вызван только один раз. 
 Реализуйте метод `spend()`, который будет устанавливать поле `spent` в значение `true`. 
@@ -56,7 +56,7 @@ npx mocha test/Blockchain.js
 Запуск теста:  
 
 ```sh
-npx mocha test/TXO.js
+npx mocha test/Transaction.js
 ``` 
 
 ## 3. Binary search tree 

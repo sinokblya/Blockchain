@@ -1,20 +1,24 @@
 const { assert } = require('chai');
-const TXO = require('../TXO').TXO;
+const Transaction = require('../Transaction').Transaction;
 const SHA256 = require('ethereum-cryptography/sha256').sha256;
 const utf8ToBytes = require('ethereum-cryptography/utils').utf8ToBytes;
 
 
-describe('TXO', function () {
-    const address = "1DBS97W3jWw6FnAqdduK1NW6kFo3Aid1N6";
-    const amount = 10;
-    const txo = new TXO(address, amount);
+describe('Transation', function () {
+    const from = "1DBS97W3jWw6FnAqdduK1NW6kFo3Aid1N6";
+    const to = "7W3jWw6FnAqdduK1NW6kFo3Aid1N61DBS9";
+    const value = 10;
+    const txo = new Transaction(from, to, value);
 
     describe('constructor', () => {
         it('should set the owner', () => {
-            assert.equal(txo.owner, address);
+            assert.equal(txo.from, from);
         });
         it('should set the amount', () => {
-            assert.equal(txo.amount, amount);
+            assert.equal(txo.value, value);
+        });
+        it('should set the address', () => {
+            assert.equal(txo.to, to);
         });
         it('should set spent to false', () => {
             assert.equal(txo.spent, false);

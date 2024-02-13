@@ -7,7 +7,7 @@ const utf8ToBytes = require('ethereum-cryptography/utils').utf8ToBytes;
 
 
 class Transaction {
-    constructor(owner, amount) {
+    constructor(from, to, value) {
         // TODO 1 Init transaction from, to, value, spent, hash 
     }
     spend() {

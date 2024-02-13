@@ -27,7 +27,7 @@ describe('Transation', function () {
 
     describe('spend', () => {
         it('should set spent to true', () => {
-            txo.spend();
+            tx.spend();
             assert.equal(tx.spent, true);
         });
         it('should not spent twice', () => {

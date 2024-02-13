@@ -23,16 +23,17 @@ class Blockchain {
     constructor() {
         
         this.chain = [
-            new Block('genesis') /* TODO: Create the genesis block here */ ];
+             /* TODO 1: Create the genesis block here */ 
+            ];
     }
 
     addBlock(block){
-        // TODO 1 Compute block.previousHash = previousBlock.toHash()
+        // TODO 2 Compute block.previousHash = previousBlock.toHash()
         this.chain.push(block)
     }
 
     isValid(){
-        // TODO 2 Check every block previous hash
+        // TODO 3 Check every block previous hash
         return true;
     }
 }

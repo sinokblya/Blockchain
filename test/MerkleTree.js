@@ -49,7 +49,7 @@ describe('Merkle proof verification', function() {
       describe('editing a hash', function() {
         it('should not verify the proof', function() {
           let proof = tree.getProof(5);
-          proof[2].data = "Q";
+          proof[2].hash = "Q";
           assert.equal(verify(proof, leaves[5], root), false);
         });
       });

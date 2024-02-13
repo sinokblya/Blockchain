@@ -17,7 +17,8 @@ class Trie {
         this.root = new TrieNode(null);
     }
     insert(word) {
-        // TODO 1 
+        // TODO Insert word symbol by symbol
+
     }
 }
 

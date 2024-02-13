@@ -8,37 +8,37 @@ describe('Transation', function () {
     const from = "1DBS97W3jWw6FnAqdduK1NW6kFo3Aid1N6";
     const to = "7W3jWw6FnAqdduK1NW6kFo3Aid1N61DBS9";
     const value = 10;
-    const txo = new Transaction(from, to, value);
+    const tx = new Transaction(from, to, value);
 
     describe('constructor', () => {
         it('should set the owner', () => {
-            assert.equal(txo.from, from);
+            assert.equal(tx.from, from);
         });
         it('should set the amount', () => {
-            assert.equal(txo.value, value);
+            assert.equal(tx.value, value);
         });
         it('should set the address', () => {
-            assert.equal(txo.to, to);
+            assert.equal(tx.to, to);
         });
         it('should set spent to false', () => {
-            assert.equal(txo.spent, false);
+            assert.equal(tx.spent, false);
         });
     });
 
     describe('spend', () => {
         it('should set spent to true', () => {
             txo.spend();
-            assert.equal(txo.spent, true);
+            assert.equal(tx.spent, true);
         });
         it('should not spent twice', () => {
-            assert.throws(() => txo.spend(), 'Already spended!');
+            assert.throws(() => tx.spend(), 'Already spended!');
         });
     });
 
     describe('hash', () => {
         it('should have valid hash', () => {
-            const validHash = SHA256(utf8ToBytes(txo.owner + txo.amount));
-            assert.deepEqual(txo.hash, validHash);
+            const validHash = SHA256(utf8ToBytes(tx.from+tx.to+tx.value));
+            assert.deepEqual(tx.hash, validHash);
         })
     })
 });

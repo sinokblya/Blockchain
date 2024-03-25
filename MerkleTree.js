@@ -14,7 +14,7 @@ class MerkleTree {
     }
 
     /** Recurcive, layer by layer concatenate leaves.
-     * returns: Concatenated leaves hash
+     * returns: Merkle root
      */
     getConcatLeaves(leaves){
         if (leaves.length == 1) {
@@ -35,7 +35,9 @@ class MerkleTree {
         }
     }
 
-    /** Merkle proof  */
+    /** Merkle proof  
+     * returns: chain of hashes, e.g. for index=0 [B, CD, EFGH]
+    */
     getProof(index, layer = this.leaves, proof = []) {
         if (layer.length === 1) return proof;
         const newLayer = [];
@@ -43,16 +45,17 @@ class MerkleTree {
             let left = layer[i];
             let right = layer[i + 1];
             if (!right) {
+                // end of layer
                 newLayer.push(left);
             }
             else {
                 newLayer.push(concatHashes(left, right));
-
-                if (i === index || i === index - 1) {
-                    let isLeft = !(index % 2);
+                // check index
+                if (i === index || (i+1) === index) {
+                    let isRight = !(index % 2);
                     proof.push({
-                        hash: isLeft ? right : left,
-                        left: !isLeft
+                        hash: isRight ? right : left,
+                        left: !isRight
                     });
                 }
             }
@@ -66,7 +69,6 @@ class MerkleTree {
 
 function verifyProof(proof, nodeHash, rootHash) {
     // TODO Verify proof chain
-
 }
 
 

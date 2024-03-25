@@ -36,7 +36,7 @@ class MerkleTree {
     }
 
     /** Merkle proof  
-     * returns: chain of hashes, e.g. for index=0 [B, CD, EFGH]
+     * returns: chain of complimentary hashes, e.g. for index=0 [B, CD, EFGH]
     */
     getProof(index, layer = this.leaves, proof = []) {
         if (layer.length === 1) return proof;
@@ -52,10 +52,10 @@ class MerkleTree {
                 newLayer.push(concatHashes(left, right));
                 // check index
                 if (i === index || (i+1) === index) {
-                    let isRight = !(index % 2);
+                    let leftLeaf = !(index % 2);
                     proof.push({
-                        hash: isRight ? right : left,
-                        left: !isRight
+                        hash: leftLeaf ? right : left,
+                        left: !leftLeaf
                     });
                 }
             }
